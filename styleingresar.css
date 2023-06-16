@@ -73,33 +73,43 @@ body {
 /* FORMULARIO DE INICIAR SESION */
 
 .signupFrm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
 
-  .form {
-    background-color: rgb(246, 252, 167);
-    width: 400px;
-    border-radius: 8px;
-    padding: 20px 40px;
-    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
-  }
-  
-  .title {
-    font-size: 50px;
-    margin-bottom: 50px;
-  }
+.form {
+  background-color: rgb(246, 252, 167);
+  width: 400px;
+  border-radius: 8px;
+  padding: 20px 40px;
+  box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+  position: relative;
+}
+
+.title {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
 
   .inputContainer {
+    display: flex;
+    align-items: center;
     position: relative;
     height: 45px;
     width: 90%;
     margin-bottom: 17px;
   }
 
-
+  .inputContainer img {
+    position: absolute;
+    right: 10px;
+    height: 20px;
+    width: 20px;
+    color: #fe9635;
+  }
  
 .input {
     position: absolute;
@@ -114,10 +124,11 @@ body {
     outline: none;
     background: none;
     z-index: 1;
+    padding-right: 30px; 
   }
   
 
-  
+
   ::placeholder {
     color: transparent;
   }
@@ -149,7 +160,7 @@ body {
   /*BOTON INGRESAR*/
   .submitBtn {
     display: block;
-    margin-right: 20px;
+    margin-right: 40px;
     padding: 15px 30px;
     border: none;
     background-color: #e77409;
@@ -157,7 +168,7 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   
   .submitBtn:hover {
@@ -187,3 +198,38 @@ body {
     font-size: 14px;
     font-weight: 600;
   }
+
+  /*EFECTO PARA EL FORMULARIO*/
+  .form {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .form.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /*ANIMACION DE IMAGEN DE MASCOTA*/
+  .dogAnimation {
+    position: absolute;
+    top: 20%;
+    right: -100px;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 200px;
+    animation: blink 3s infinite;
+  
+  }
+@keyframes blink {
+  0%, 100% {
+    transform: translate(-50%, -50%);
+  }
+  20%, 80% {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  40%, 60% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
